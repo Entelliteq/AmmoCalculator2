@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@id/landingScreenFragment">
+    <fragment
+        android:id="@+id/weaponFragment2"
+        android:name="com.intelliteq.fea.ammocalculator.weapon.WeaponFragment"
+        android:label="fragment_weapon"
+        tools:layout="@layout/fragment_weapon" >
+        <action
+            android:id="@+id/action_weaponFragment2_to_weaponAmmoFragment"
+            app:destination="@id/weaponAmmoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weaponAmmoFragment"
+        android:name="com.intelliteq.fea.ammocalculator.weaponAmmo.WeaponAmmoFragment"
+        android:label="fragment_weapon_ammo"
+        tools:layout="@layout/fragment_weapon_ammo" >
+        <action
+            android:id="@+id/action_weaponAmmoFragment_self"
+            app:destination="@id/weaponAmmoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/landingScreenFragment"
+        android:name="com.intelliteq.fea.ammocalculator.landingScreen.LandingScreenFragment"
+        android:label="fragment_landing_screen"
+        tools:layout="@layout/fragment_landing_screen" >
+        <action
+            android:id="@+id/action_landingScreenFragment_to_weaponFragment2"
+            app:destination="@id/weaponFragment2" />
+    </fragment>
+</navigation>
