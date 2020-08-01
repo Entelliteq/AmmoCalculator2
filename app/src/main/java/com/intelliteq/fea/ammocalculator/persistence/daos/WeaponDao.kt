@@ -6,7 +6,7 @@ import com.intelliteq.fea.ammocalculator.persistence.models.Weapon
 
 @Dao
 interface WeaponDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE) //added testing push
     fun insert(weapon: Weapon)
 
     @Update
