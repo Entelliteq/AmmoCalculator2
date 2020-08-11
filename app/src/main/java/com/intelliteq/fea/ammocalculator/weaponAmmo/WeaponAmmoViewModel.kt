@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.intelliteq.fea.ammocalculator.persistence.daos.WeaponAmmoDao
 import com.intelliteq.fea.ammocalculator.persistence.models.Weapon
+import com.intelliteq.fea.ammocalculator.persistence.models.WeaponAmmo
 import kotlinx.coroutines.*
 
 class WeaponAmmoViewModel(
@@ -25,11 +26,28 @@ class WeaponAmmoViewModel(
 
     fun onAddAnotherAmmo() {
         uiScope.launch {
-            withContext(Dispatchers.IO) {
-                val weapon = database.get(weaponAmmoKey) ?: return@withContext
-
-            }
+            update()
         }
+    }
+
+    private suspend fun update() {
+        withContext(Dispatchers.IO) {
+            val weaponAmmo = database.get(weaponAmmoKey)
+            database.update(weaponAmmo)
+        }
+    }
+
+
+
+
+
+
+
+
+
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
     }
 
 

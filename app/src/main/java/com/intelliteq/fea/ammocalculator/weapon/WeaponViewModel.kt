@@ -1,5 +1,8 @@
 package com.intelliteq.fea.ammocalculator.weapon
 
+import android.app.Application
+import android.app.ApplicationErrorReport
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,30 +11,25 @@ import com.intelliteq.fea.ammocalculator.persistence.models.Weapon
 import kotlinx.coroutines.*
 
 class WeaponViewModel (
-    private val weaponKey: Long = 0L,
-    val database: WeaponDao
-) : ViewModel() {
+    val database: WeaponDao,
+    application: Application) : AndroidViewModel(application) {
 
     private val viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private val weapons = database.getAll()
-
     private val weapon = MutableLiveData<Weapon?>()
 
-    private val weaponId = weapon.value?.weaponId
+    private val _navigateToInputWeaponAmmo = MutableLiveData<Weapon>()
 
-    private val _navigateToWeaponAmmo = MutableLiveData<Weapon>()
-
-    val navigateToWeaponAmmo: LiveData<Weapon>
-        get() = _navigateToWeaponAmmo
+    val navigateToInputWeaponAmmo: LiveData<Weapon>
+        get() = _navigateToInputWeaponAmmo
 
     init {
         initializeWeapon()
     }
     //resets variable that triggers navigation
     fun doneNavigation() {
-        _navigateToWeaponAmmo.value = null
+        _navigateToInputWeaponAmmo.value = null
     }
 
     private fun initializeWeapon() {
@@ -59,4 +57,11 @@ class WeaponViewModel (
             database.insert(weapon)
         }
     }
+
+    //cancel all coroutines
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
+    }
+
 }
