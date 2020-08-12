@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.intelliteq.fea.ammocalculator.persistence.daos.ComponentAmmoDao
 import com.intelliteq.fea.ammocalculator.persistence.daos.ComponentDao
 import com.intelliteq.fea.ammocalculator.persistence.daos.WeaponAmmoDao
 import com.intelliteq.fea.ammocalculator.persistence.daos.WeaponDao
@@ -17,7 +18,7 @@ public abstract class AmmoRoomDatabase : RoomDatabase() {
     abstract fun weaponDaoAccess(): WeaponDao
     abstract fun weaponAmmoDaoAccess() : WeaponAmmoDao
     abstract fun componentDaoAccess() : ComponentDao
-    abstract fun componentAmmoDaoAccess() : ComponentAmmo
+    abstract fun componentAmmoDaoAccess() : ComponentAmmoDao
 
     companion object {
         var INSTANCE: AmmoRoomDatabase? = null

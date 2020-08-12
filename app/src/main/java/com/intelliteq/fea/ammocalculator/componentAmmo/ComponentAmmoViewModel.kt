@@ -4,11 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.intelliteq.fea.ammocalculator.persistence.daos.ComponentAmmoDao
 
-
 class ComponentAmmoViewModel (
     val database: ComponentAmmoDao,
     application: Application
-) : AndroidViewModel(application) {
-    
+) : AndroidViewModel(application){
 
 }

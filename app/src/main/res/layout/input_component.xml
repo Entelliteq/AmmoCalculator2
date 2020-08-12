@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.intelliteq.fea.ammocalculator.component.ComponentFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/button2"
+        app:layout_constraintEnd_toStartOf="@id/rightComponent"
+        app:layout_constraintStart_toStartOf="@id/leftComponent"
+        app:layout_constraintTop_toBottomOf="@id/textView18"
+        tools:layout="@layout/fragment_component"/>
+
+    <fragment
+        android:id="@+id/fragment3"
+        android:name="com.intelliteq.fea.ammocalculator.componentAmmo.ComponentAmmoFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/verify"
+        app:layout_constraintEnd_toEndOf="@id/rightComponent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/leftComponent"
+        app:layout_constraintTop_toBottomOf="@id/textView20"
+        tools:layout="@layout/fragment_component_ammo" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="left" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/leftComponent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="10dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rightComponent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="10dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottomComponent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="20dp" />
+
+    <Button
+        android:id="@+id/verify"
+        style="@style/button"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/verify"
+        app:layout_constraintBottom_toTopOf="@id/bottomComponent"
+        app:layout_constraintEnd_toStartOf="@id/rightComponent"
+        app:layout_constraintStart_toEndOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/button"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="@string/add_another_ammo"
+        app:layout_constraintBottom_toTopOf="@+id/bottomComponent"
+        app:layout_constraintEnd_toStartOf="@+id/verify"
+        app:layout_constraintStart_toStartOf="@+id/leftComponent" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/button"
+        android:text="@string/add_another_component"
+        app:layout_constraintBottom_toTopOf="@+id/textView20"
+        app:layout_constraintEnd_toStartOf="@+id/rightComponent"
+        app:layout_constraintStart_toStartOf="@+id/leftComponent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment2" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/input_component"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/fragment2"
+        app:layout_constraintEnd_toStartOf="@+id/rightComponent"
+        app:layout_constraintStart_toStartOf="@+id/leftComponent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.52" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/input_ammo"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/fragment3"
+        app:layout_constraintEnd_toStartOf="@+id/rightComponent"
+        app:layout_constraintStart_toStartOf="@+id/leftComponent"
+        app:layout_constraintTop_toBottomOf="@+id/button2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

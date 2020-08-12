@@ -6,15 +6,16 @@ import androidx.lifecycle.ViewModelProvider
 import com.intelliteq.fea.ammocalculator.persistence.daos.ComponentDao
 import java.lang.IllegalArgumentException
 
-class ComponentViewModelFactory(
+class ComponentViewModelFactory (
     private val dataSource: ComponentDao,
-    private val application: Application) : ViewModelProvider.Factory {
+    private val application: Application
+) : ViewModelProvider.Factory {
 
-        @Suppress("unchecked_cast")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(ComponentViewModel::class.java)) {
-                return ComponentViewModel(dataSource, application) as T
-            }
-            throw IllegalArgumentException("Unknown ViewModel class")
+    @Suppress("unchecked_cast")
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(ComponentViewModel::class.java)) {
+            return ComponentViewModel(dataSource, application) as T
         }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
 }
