@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/navigation"
+app:startDestination="@id/mainFragment">
+
+<fragment
+    android:id="@+id/mainFragment"
+    android:name="com.intelliteq.fea.ammocalculator.MainFragment"
+    android:label="fragment_main"
+    tools:layout="@layout/fragment_main" >
+    <action
+        android:id="@+id/action_mainFragment_to_fragInputWeapon"
+        app:destination="@id/fragInputWeapon" />
+</fragment>
+<fragment
+    android:id="@+id/fragInputAmmo"
+    android:name="com.intelliteq.fea.ammocalculator.component.ComponentFragment"
+    android:label="frag_input_ammo"
+    tools:layout="@layout/fragment_weapon_ammo" >
+    <action
+        android:id="@+id/action_fragInputAmmo_to_fragInputAmmoComp"
+        app:destination="@id/fragInputAmmoComp" />
+    <action
+        android:id="@+id/action_fragInputAmmo_to_fragInputComponent"
+        app:destination="@id/fragInputComponent" />
+    <action
+        android:id="@+id/action_fragInputAmmo_to_fragConfirmInfo"
+        app:destination="@id/fragConfirmInfo" />
+    <argument android:name="inputWeaponRecipient"
+        android:defaultValue="None" />
+    <argument android:name="inputDescRecipient"
+        android:defaultValue="None" />
+</fragment>
+<fragment
+    android:id="@+id/fragInputWeapon"
+    android:name="com.intelliteq.fea.ammocalculator.weapon.WeaponFragment"
+    android:label="frag_input_weapon"
+    tools:layout="@layout/fragment_weapon" >
+    <action
+        android:id="@+id/action_fragInputWeapon_to_fragInputAmmo"
+        app:destination="@id/fragInputAmmo" />
+</fragment>
+<fragment
+    android:id="@+id/fragInputAmmoComp"
+    android:name="com.intelliteq.fea.ammocalculator.componentAmmo.ComponentAmmoFragment"
+    android:label="fragment_frag_input_ammo_comp"
+    tools:layout="@layout/fragment_component_ammo" >
+    <action
+        android:id="@+id/action_fragInputAmmoComp_to_fragConfirmInfo"
+        app:destination="@id/fragConfirmInfo" />
+</fragment>
+<fragment
+    android:id="@+id/fragInputComponent"
+    android:name="com.intelliteq.fea.ammocalculator.component.ComponentFragment"
+    android:label="frag_input_component"
+    tools:layout="@layout/fragment_component" >
+    <action
+        android:id="@+id/action_fragInputComponent_to_fragConfirmInfo"
+        app:destination="@id/fragConfirmInfo" />
+</fragment>
+<fragment
+    android:id="@+id/fragConfirmInfo"
+    android:name="com.intelliteq.fea.ammocalculator.FragConfirmInfo"
+    android:label="fragment_frag_confirm_info"
+    tools:layout="@layout/frag_confirm_info" >
+    <argument android:name="inputWeaponRecipient"
+        android:defaultValue="None" />
+    <argument android:name="inputDescRecipient"
+        android:defaultValue="None" />
+    <argument android:name="inputAmmoRecipient"
+        android:defaultValue="None" />
+    <argument android:name="inputCompRecipient"
+        android:defaultValue="None" />
+    <argument android:name="inputTrainingRecipient"
+        android:defaultValue="None"/>
+    <argument android:name="inputSustainRecipient"
+        android:defaultValue="None"/>
+    <argument android:name="inputSecurityRecipient"
+        android:defaultValue="None"/>
+    <argument android:name="inputLightRecipient"
+        android:defaultValue="None"/>
+    <argument android:name="inputMediumRecipient"
+        android:defaultValue="None"/>
+    <argument android:name="inputHeavyRecipient"
+        android:defaultValue="None"/>
+</fragment>
+</navigation>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<navigation xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+    <!--    android:id="@+id/navigation"-->
+    <!--    tools:ignore="UnusedNavigation"-->
+    <!--    app:startDestination="@id/landingScreenFragment">-->
+    <!--    <fragment-->
+    <!--        android:id="@+id/weaponFragment2"-->
+    <!--        android:name="com.intelliteq.fea.ammocalculator.weapon.WeaponFragment"-->
+    <!--        android:label="fragment_weapon"-->
+    <!--        tools:layout="@layout/fragment_weapon" >-->
+    <!--        <action-->
+    <!--            android:id="@+id/action_weaponFragment2_to_weaponAmmoFragment"-->
+    <!--            app:destination="@id/weaponAmmoFragment" />-->
+    <!--    </fragment>-->
+    <!--    <fragment-->
+    <!--        android:id="@+id/weaponAmmoFragment"-->
+    <!--        android:name="com.intelliteq.fea.ammocalculator.weaponAmmo.WeaponAmmoFragment"-->
+    <!--        android:label="fragment_weapon_ammo"-->
+    <!--        tools:layout="@layout/fragment_weapon_ammo" >-->
+    <!--        <action-->
+    <!--            android:id="@+id/action_weaponAmmoFragment_self"-->
+    <!--            app:destination="@id/weaponAmmoFragment" />-->
+    <!--    </fragment>-->
+    <!--    <fragment-->
+    <!--        android:id="@+id/landingScreenFragment"-->
+    <!--        android:name="com.intelliteq.fea.ammocalculator.landingScreen.LandingScreenFragment"-->
+    <!--        android:label="fragment_landing_screen"-->
+    <!--        tools:layout="@layout/fragment_landing_screen" >-->
+    <!--        <action-->
+    <!--            android:id="@+id/action_landingScreenFragment_to_weaponFragment2"-->
+    <!--            app:destination="@id/weaponFragment2" />-->
+    <!--    </fragment>-->
+    <!--</navigation>-->
